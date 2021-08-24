@@ -8,6 +8,6 @@ import lombok.Data;
 public class StateCommand {
 	
   private String state;
-  private List<FrequentCommand> frequentCommand;
+  private List<Command> commands;
 
 }
