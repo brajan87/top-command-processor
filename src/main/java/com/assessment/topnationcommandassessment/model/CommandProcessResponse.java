@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class CommandProcessResponse {
 	
-	private List<FrequentCommand> stateCommands;
+	private List<StateFrequentCommand> stateCommands;
 	private List<String> nationCommands;
 	
 }
