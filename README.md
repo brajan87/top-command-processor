@@ -6,40 +6,69 @@ Sample Request :
 {
     "stateCommands": [
         {
-            "state": "Florida",
+            "state": "alabama",
             "commands": [
                 {
                     "speaker": "Fred Zhang",
                     "speakerCommand": "CNN"
                 },
                 {
-                    "speaker": "John",
-                    "speakerCommand": "cNn"
+                   "speaker": "Fred Zhang",
+                   "speakerCommand": "NBC"
                 },
                 {
-                    "speaker": "John",
-                    "speakerCommand": null
+                    "speaker": "Fred Zhang",
+                    "speakerCommand": "CNN"
                 }
             ]
         },
         {
-            "state": "alabama",
+            "state": "Florida",
             "commands": [
                 {
-                    "speaker": "Fred Zhang",
-                    "speakerCommand": "TBD"
+                    "speaker": "Thomas Brown",
+                    "speakerCommand": "Show me movies"
                 },
                 {
-                    "speaker": "John",
-                    "speakerCommand": "Game oF"
+                    "speaker": "Alisha Brown",
+                    "speakerCommand": "Stranger Things"
                 },
                 {
-                    "speaker": "John",
-                    "speakerCommand": "GAME of"
+                    "speaker": "Marcus Brown",
+                    "speakerCommand": "Game of Thrones"
                 },
                 {
-                    "speaker": "John",
-                    "speakerCommand": "game OF"
+                    "speaker": "Missy Brown",
+                    "speakerCommand": "Turn off the TV"
+                },
+                {
+                    "speaker": "Missy Brown",
+                    "speakerCommand": "Turn off the TV"
+                }
+            ]
+        },
+        {
+            "state": "maryland",
+            "commands": [
+                {
+                    "speaker": "Thomas Black",
+                    "speakerCommand": "Show me comedies"
+                },
+                {
+                   "speaker": "Alisa Black",
+                   "speakerCommand": "Game of thrones"
+                },
+                {
+                    "speaker": "Marcus Black",
+                    "speakerCommand": "game of thrones"
+                },
+                {
+                    "speaker": "Missy Black",
+                    "speakerCommand": "game OF thrones"
+                },
+                {
+                    "speaker": "Missy Black",
+                    "speakerCommand": "turn off the TV"
                 }
             ]
         }

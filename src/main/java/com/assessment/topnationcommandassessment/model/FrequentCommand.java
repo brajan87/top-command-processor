@@ -7,8 +7,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FrequentCommand {
 	
-	private final String startProcessTime;
 	private String mostFrequentCommand;
+	private final String startProcessTime;
 	private String stopProcessTime;
 
 }
