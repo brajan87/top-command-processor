@@ -36,17 +36,23 @@ public class CommandProcessServiceImpl implements CommandProcessService{
 	}
 	
 	private StateFrequentCommand processStateCommands(StateCommand stateCommand) {
+		StateFrequentCommand stateFrequentCommand = null;
 		Map<String, Integer> commandTracker = new CaseInsensitiveKeyMap<>();
 		List<String> topCommand = new ArrayList<>();
 		FrequentCommand frequentCommand = new FrequentCommand(String.valueOf(Clock.systemDefaultZone().millis()));
 		stateCommand.getCommands().forEach(command -> {
 			commandTracker.put(command.getSpeakerCommand(), commandTracker.getOrDefault(command.getSpeakerCommand(), 0)+1);
 		});
-		commandTracker.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).forEachOrdered(x -> topCommand.add(x.getKey()));
-		frequentCommand.setMostFrequentCommand(sortMapbyValue(commandTracker, 1).get(0));
-		frequentCommand.setStopProcessTime(String.valueOf(Clock.systemDefaultZone().millis()));
-		return new StateFrequentCommand(stateCommand.getState(),frequentCommand);
-		
+		if(commandTracker.isEmpty()) {
+			stateFrequentCommand = new StateFrequentCommand();
+			stateFrequentCommand.setState(stateCommand.getState());
+		}else {
+			commandTracker.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).forEachOrdered(x -> topCommand.add(x.getKey()));
+			frequentCommand.setMostFrequentCommand(sortMapbyValue(commandTracker, 1).get(0));
+			frequentCommand.setStopProcessTime(String.valueOf(Clock.systemDefaultZone().millis()));
+			stateFrequentCommand = new StateFrequentCommand(stateCommand.getState(),frequentCommand);
+		}
+		return stateFrequentCommand;
 	}
 	
 	private List<String> sortMapbyValue(Map<String,Integer> map, Integer limiter){
