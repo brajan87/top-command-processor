@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.assessment.topnationcommandassessment.exception.StateCommandNotFoundException;
 import com.assessment.topnationcommandassessment.model.CommandProcessRequest;
 import com.assessment.topnationcommandassessment.model.CommandProcessResponse;
 import com.assessment.topnationcommandassessment.service.CommandProcessService;
@@ -24,6 +25,10 @@ public class CommandProcessController {
   public ResponseEntity<CommandProcessResponse> processCommand(@RequestBody CommandProcessRequest request)
       throws JsonProcessingException {
 
+	if(request.getStateCommands().isEmpty()) {
+		throw new StateCommandNotFoundException();
+	}
+	  
     return ResponseEntity.ok(service.getTopCommands(request));
   }
 
