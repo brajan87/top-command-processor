@@ -8,8 +8,9 @@ Listed below are dependencies used in this project.
 * Spring Boot 2.5
 * Java 11
 * Gradle 7.1
-* Mockito 3.7.7
 * Lombok 1.18.20
+* Junit 4
+* Mockito 3.7.7
 
 
 ### Sample Request
