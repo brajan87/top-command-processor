@@ -5,6 +5,8 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,18 +52,12 @@ public class CommandProcessServiceImplTest{
 	private CommandProcessRequest getCommandProcessRequestForSuccessScenario() {
 		Command command1 = Command.builder().speaker("John").speakerCommand("cnn").build();
 		Command command2 = Command.builder().speaker("Jon").speakerCommand("BBC").build();
-		List<Command> commands = new ArrayList<>() {{
-			add(command1);
-			add(command2);
-		}};
+		List<Command> commands = Stream.of(command1,command2).collect(Collectors.toList());
 		StateCommand stateCommand1 = StateCommand.builder().state("Florida").commands(commands).build();
 		Command command3 = Command.builder().speaker("Jon").speakerCommand("bBc").build();
 		commands.add(command3);
 		StateCommand stateCommand2 = StateCommand.builder().state("Arizona").commands(commands).build();
-		List<StateCommand> stateCommands = new ArrayList<>() {{
-			add(stateCommand1);
-			add(stateCommand2);
-		}};
+		List<StateCommand> stateCommands = Stream.of(stateCommand1,stateCommand2).collect(Collectors.toList());
 		CommandProcessRequest commandProcessRequest = CommandProcessRequest.builder().stateCommands(stateCommands).build();
 		return commandProcessRequest;
 	}

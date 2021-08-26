@@ -35,6 +35,9 @@ public class CommandProcessServiceImpl implements CommandProcessService{
 		return commandProcessResponse;
 	}
 	
+	/**
+	 * This method iterate each state and keeps track of top commands within a given state
+	 */
 	private StateFrequentCommand processStateCommands(StateCommand stateCommand) {
 		StateFrequentCommand stateFrequentCommand = null;
 		Map<String, Integer> commandTracker = new CaseInsensitiveKeyMap<>();
