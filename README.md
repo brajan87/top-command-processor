@@ -12,6 +12,11 @@ Listed below are dependencies used in this project.
 * Junit 4
 * Mockito 3.7.7
 
+### Assumptions
+ * There will always be atleast one stateCommand in the input request.
+ * There will not be any set of state commands without state name.
+ * When there is a speaker, then speaker command will be in the input request. 
+If any of the above conditions are not met, then it is considered as a bad request.
 
 ### Sample Request
 
