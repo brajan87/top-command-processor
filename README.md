@@ -1,7 +1,18 @@
-# top-command-processor
+# Top National and State Commands
+
+This project is to get the top commands state wise and nation wise.
+
+### Dependencies
+
+Listed below are dependencies used in this project.
+* Spring Boot 2.5
+* Java 11
+* Gradle 7.1
+* Mockito 3.7.7
+* Lombok 1.18.20
 
 
-Sample Request : 
+### Sample Request
 
 {
     "stateCommands": [
@@ -72,5 +83,41 @@ Sample Request :
                 }
             ]
         }
+    ]
+}
+
+### Sample Response
+
+{
+    "stateCommands": [
+        {
+            "state": "alabama",
+            "frequentCommand": {
+                "mostFrequentCommand": "CNN",
+                "startProcessTime": "1629981906364",
+                "stopProcessTime": "1629981906364"
+            }
+        },
+        {
+            "state": "Florida",
+            "frequentCommand": {
+                "mostFrequentCommand": "Turn off the TV",
+                "startProcessTime": "1629981906364",
+                "stopProcessTime": "1629981906364"
+            }
+        },
+        {
+            "state": "maryland",
+            "frequentCommand": {
+                "mostFrequentCommand": "Game of thrones",
+                "startProcessTime": "1629981906364",
+                "stopProcessTime": "1629981906364"
+            }
+        }
+    ],
+    "nationCommands": [
+        "Game of Thrones",
+        "Turn off the TV",
+        "CNN"
     ]
 }
