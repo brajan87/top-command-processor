@@ -46,7 +46,7 @@ public class CommandProcessControllerTest {
 	private CommandProcessService commandProcessService;
 	
 	@Test
-	public void testGetTopCommandController() throws Exception {
+	public void testGetTopCommandControllerForSuccess() throws Exception {
 		String request = "{\"stateCommands\":[{\"state\":\"alabama\",\"commands\":[{\"speaker\":\"Fred Zhang\",\"speakerCommand\":\"CNN\"},{\"speaker\":\"Fred Zhang\",\"speakerCommand\":\"NBC\"},{\"speaker\":\"Fred Zhang\",\"speakerCommand\":\"CNN\"}]},"
 				+ "{\"state\":\"Florida\",\"commands\":[{\"speaker\":\"Thomas Brown\",\"speakerCommand\":\"Show me movies\"},{\"speaker\":\"Alisha Brown\",\"speakerCommand\":\"Stranger Things\"},{\"speaker\":\"Marcus Brown\",\"speakerCommand\":\"Game of Thrones\"},{\"speaker\":\"Missy Brown\",\"speakerCommand\":\"Turn off the TV\"},{\"speaker\":\"Missy Brown\",\"speakerCommand\":\"Turn off the TV\"}]},"
 				+ "{\"state\":\"maryland\",\"commands\":[{\"speaker\":\"Thomas Black\",\"speakerCommand\":\"Show me comedies\"},{\"speaker\":\"Alisa Black\",\"speakerCommand\":\"Game of thrones\"},{\"speaker\":\"Marcus Black\",\"speakerCommand\":\"game of thrones\"},{\"speaker\":\"Missy Black\",\"speakerCommand\":\"game OF thrones\"},{\"speaker\":\"Missy Black\",\"speakerCommand\":\"turn off the TV\"}]}]}";
@@ -55,6 +55,32 @@ public class CommandProcessControllerTest {
 		mvcResult = mockMvc.perform(requestBuilder).andReturn();
 		MockHttpServletResponse response = mvcResult.getResponse();
 		assertEquals(200, response.getStatus());
+		assertNotNull(response);
+	}
+	
+	@Test
+	public void testGetTopCommandControllerWithEmptySpeakerCommand() throws Exception {
+		String request = "{\"stateCommands\":[{\"state\":\"alabama\",\"commands\":[{\"speaker\":\"Fred Zhang\",\"speakerCommand\":null},{\"speaker\":\"Fred Zhang\",\"speakerCommand\":\"NBC\"},{\"speaker\":\"Fred Zhang\",\"speakerCommand\":\"CNN\"}]},"
+				+ "{\"state\":\"Florida\",\"commands\":[{\"speaker\":\"Thomas Brown\",\"speakerCommand\":\"Show me movies\"},{\"speaker\":\"Alisha Brown\",\"speakerCommand\":\"Stranger Things\"},{\"speaker\":\"Marcus Brown\",\"speakerCommand\":\"Game of Thrones\"},{\"speaker\":\"Missy Brown\",\"speakerCommand\":\"Turn off the TV\"},{\"speaker\":\"Missy Brown\",\"speakerCommand\":\"Turn off the TV\"}]},"
+				+ "{\"state\":\"maryland\",\"commands\":[{\"speaker\":\"Thomas Black\",\"speakerCommand\":\"Show me comedies\"},{\"speaker\":\"Alisa Black\",\"speakerCommand\":\"Game of thrones\"},{\"speaker\":\"Marcus Black\",\"speakerCommand\":\"game of thrones\"},{\"speaker\":\"Missy Black\",\"speakerCommand\":\"game OF thrones\"},{\"speaker\":\"Missy Black\",\"speakerCommand\":\"turn off the TV\"}]}]}";
+		RequestBuilder requestBuilder = (RequestBuilder) MockMvcRequestBuilders.post("/command/top-commands").accept(MediaType.APPLICATION_JSON).content(request).contentType(MediaType.APPLICATION_JSON);
+		MvcResult mvcResult;
+		mvcResult = mockMvc.perform(requestBuilder).andReturn();
+		MockHttpServletResponse response = mvcResult.getResponse();
+		assertEquals(400, response.getStatus());
+		assertNotNull(response);
+	}
+	
+	@Test
+	public void testGetTopCommandControllerWithEmptyStateName() throws Exception {
+		String request = "{\"stateCommands\":[{\"state\":null,\"commands\":[{\"speaker\":\"Fred Zhang\",\"speakerCommand\":null},{\"speaker\":\"Fred Zhang\",\"speakerCommand\":\"NBC\"},{\"speaker\":\"Fred Zhang\",\"speakerCommand\":\"CNN\"}]},"
+				+ "{\"state\":\"Florida\",\"commands\":[{\"speaker\":\"Thomas Brown\",\"speakerCommand\":\"Show me movies\"},{\"speaker\":\"Alisha Brown\",\"speakerCommand\":\"Stranger Things\"},{\"speaker\":\"Marcus Brown\",\"speakerCommand\":\"Game of Thrones\"},{\"speaker\":\"Missy Brown\",\"speakerCommand\":\"Turn off the TV\"},{\"speaker\":\"Missy Brown\",\"speakerCommand\":\"Turn off the TV\"}]},"
+				+ "{\"state\":\"maryland\",\"commands\":[{\"speaker\":\"Thomas Black\",\"speakerCommand\":\"Show me comedies\"},{\"speaker\":\"Alisa Black\",\"speakerCommand\":\"Game of thrones\"},{\"speaker\":\"Marcus Black\",\"speakerCommand\":\"game of thrones\"},{\"speaker\":\"Missy Black\",\"speakerCommand\":\"game OF thrones\"},{\"speaker\":\"Missy Black\",\"speakerCommand\":\"turn off the TV\"}]}]}";
+		RequestBuilder requestBuilder = (RequestBuilder) MockMvcRequestBuilders.post("/command/top-commands").accept(MediaType.APPLICATION_JSON).content(request).contentType(MediaType.APPLICATION_JSON);
+		MvcResult mvcResult;
+		mvcResult = mockMvc.perform(requestBuilder).andReturn();
+		MockHttpServletResponse response = mvcResult.getResponse();
+		assertEquals(400, response.getStatus());
 		assertNotNull(response);
 	}
 	
