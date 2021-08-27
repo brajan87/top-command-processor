@@ -22,7 +22,7 @@ public class CommandProcessController {
   private final CommandProcessService service;
   
   @PostMapping("/top-commands")
-  public ResponseEntity<CommandProcessResponse> processCommand(@RequestBody CommandProcessRequest request)
+  public ResponseEntity<CommandProcessResponse> processTopCommand(@RequestBody CommandProcessRequest request)
       throws JsonProcessingException {
 
 	if(request.getStateCommands().isEmpty()) {
