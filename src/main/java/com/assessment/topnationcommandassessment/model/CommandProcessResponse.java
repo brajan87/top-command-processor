@@ -8,6 +8,6 @@ import lombok.Data;
 public class CommandProcessResponse {
 	
 	private List<StateFrequentCommand> stateCommands;
-	private List<String> nationCommands;
+	private List<String> topCommandNationally;
 	
 }

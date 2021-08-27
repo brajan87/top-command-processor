@@ -31,7 +31,7 @@ public class CommandProcessServiceImpl implements CommandProcessService{
 			stateCommand.getCommands().forEach(command -> nationCommandTracker.put(command.getSpeakerCommand(), nationCommandTracker.getOrDefault(command.getSpeakerCommand(), 0)+1));
 		});
 		commandProcessResponse.setStateCommands(stateFrequentCommands);
-		commandProcessResponse.setNationCommands(sortMapbyValue(nationCommandTracker, 3));
+		commandProcessResponse.setTopCommandNationally(sortMapbyValue(nationCommandTracker, 3));
 		return commandProcessResponse;
 	}
 	
@@ -61,6 +61,5 @@ public class CommandProcessServiceImpl implements CommandProcessService{
 	private List<String> sortMapbyValue(Map<String,Integer> map, Integer limiter){
 		return map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).limit(limiter).map(Map.Entry::getKey).collect(Collectors.toList());
 	}
-
-
+	
 }

@@ -34,8 +34,8 @@ public class CommandProcessServiceImplTest{
 		commandProcessResponse = commandProcessServiceImpl.getTopCommands(getCommandProcessRequestForSuccessScenario());
 		assertNotNull(commandProcessResponse);
 		assertNotNull(commandProcessResponse.getStateCommands());
-		assertNotNull(commandProcessResponse.getNationCommands());
-		assertEquals("BBC",commandProcessResponse.getNationCommands().get(0));
+		assertNotNull(commandProcessResponse.getTopCommandNationally());
+		assertEquals("BBC",commandProcessResponse.getTopCommandNationally().get(0));
 	}
 	
 	@Test
@@ -44,9 +44,9 @@ public class CommandProcessServiceImplTest{
 		commandProcessResponse = commandProcessServiceImpl.getTopCommands(commandProcessRequest);
 		assertNotNull(commandProcessResponse);
 		assertNotNull(commandProcessResponse.getStateCommands());
-		assertNotNull(commandProcessResponse.getNationCommands());
+		assertNotNull(commandProcessResponse.getTopCommandNationally());
 		assertEquals(true, commandProcessResponse.getStateCommands().isEmpty());
-		assertEquals(true, commandProcessResponse.getNationCommands().isEmpty());
+		assertEquals(true, commandProcessResponse.getTopCommandNationally().isEmpty());
 	}
 	
 	private CommandProcessRequest getCommandProcessRequestForSuccessScenario() {
