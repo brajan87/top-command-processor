@@ -9,7 +9,7 @@ Listed below are dependencies used in this project.
 * Java 11
 * Gradle 7.1
 * Lombok 1.18.20
-* Junit 4
+* Junit 4 (Note : Please verify in the Run Configuration that the IDE is using Junit4 for running the test cases)
 * Mockito 3.7.7
 
 ### Assumptions
