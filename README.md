@@ -17,8 +17,11 @@ Listed below are dependencies used in this project.
  * There will not be any set of state commands without state name.
  * When there is a speaker, then speaker command will be in the input request. 
 
-
 If any of the above conditions are not met, then it is considered as a bad request.
+
+ * There will be always one list of commands for a given state in the input request.
+ * Letter case of the commands in the response will be decided based on the first occurance of the command in the input request.
+
 
 ### Sample Request
 
@@ -32,8 +35,8 @@ If any of the above conditions are not met, then it is considered as a bad reque
                     "speakerCommand": "CNN"
                 },
                 {
-                   "speaker": "Fred Zhang",
-                   "speakerCommand": "NBC"
+                    "speaker": "Fred Zhang",
+                    "speakerCommand": "NBC"
                 },
                 {
                     "speaker": "Fred Zhang",
@@ -74,8 +77,8 @@ If any of the above conditions are not met, then it is considered as a bad reque
                     "speakerCommand": "Show me comedies"
                 },
                 {
-                   "speaker": "Alisa Black",
-                   "speakerCommand": "Game of thrones"
+                    "speaker": "Alisa Black",
+                    "speakerCommand": "Game of thrones"
                 },
                 {
                     "speaker": "Marcus Black",
@@ -102,28 +105,28 @@ If any of the above conditions are not met, then it is considered as a bad reque
             "state": "alabama",
             "frequentCommand": {
                 "mostFrequentCommand": "CNN",
-                "startProcessTime": "1629981906364",
-                "stopProcessTime": "1629981906364"
+                "startProcessTime": "1630032641623",
+                "stopProcessTime": "1630032641623"
             }
         },
         {
             "state": "Florida",
             "frequentCommand": {
                 "mostFrequentCommand": "Turn off the TV",
-                "startProcessTime": "1629981906364",
-                "stopProcessTime": "1629981906364"
+                "startProcessTime": "1630032641623",
+                "stopProcessTime": "1630032641623"
             }
         },
         {
             "state": "maryland",
             "frequentCommand": {
                 "mostFrequentCommand": "Game of thrones",
-                "startProcessTime": "1629981906364",
-                "stopProcessTime": "1629981906364"
+                "startProcessTime": "1630032641623",
+                "stopProcessTime": "1630032641623"
             }
         }
     ],
-    "nationCommands": [
+    "topCommandNationally": [
         "Game of Thrones",
         "Turn off the TV",
         "CNN"
