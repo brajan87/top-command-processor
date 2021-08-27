@@ -1,6 +1,6 @@
 # Top National and State Commands
 
-This project is to get the top commands state wise and nation wise.
+This project is to get the top commands state and nation wise.
 
 ### Dependencies
 
@@ -16,6 +16,8 @@ Listed below are dependencies used in this project.
  * There will always be atleast one stateCommand in the input request.
  * There will not be any set of state commands without state name.
  * When there is a speaker, then speaker command will be in the input request. 
+
+
 If any of the above conditions are not met, then it is considered as a bad request.
 
 ### Sample Request
