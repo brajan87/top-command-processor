@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -31,7 +32,7 @@ public class CommandProcessServiceImplTest{
 	
 	@Test
 	public void testGetTopCommands() {
-		commandProcessResponse = commandProcessServiceImpl.getTopCommands(getCommandProcessRequestForSuccessScenario());
+		commandProcessResponse = commandProcessServiceImpl.getTopCommands(getCommandProcessRequestForSuccessScenario(), new HashMap<String, List<Command>>());
 		assertNotNull(commandProcessResponse);
 		assertNotNull(commandProcessResponse.getStateCommands());
 		assertNotNull(commandProcessResponse.getTopCommandNationally());
@@ -41,7 +42,7 @@ public class CommandProcessServiceImplTest{
 	@Test
 	public void testGetTopCommandsForEmptyStateCommands() {
 		CommandProcessRequest commandProcessRequest = CommandProcessRequest.builder().stateCommands(new ArrayList<StateCommand>()).build();
-		commandProcessResponse = commandProcessServiceImpl.getTopCommands(commandProcessRequest);
+		commandProcessResponse = commandProcessServiceImpl.getTopCommands(commandProcessRequest, new HashMap<String, List<Command>>());
 		assertNotNull(commandProcessResponse);
 		assertNotNull(commandProcessResponse.getStateCommands());
 		assertNotNull(commandProcessResponse.getTopCommandNationally());
